@@ -1,0 +1,156 @@
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box; /* Garante que o padding seja incluído no tamanho total */
+  width: 100%;
+  max-width: 100vw; /* Garante que o container não ultrapasse a largura da viewport */
+  overflow-x: hidden; /* Evita o transbordamento horizontal */
+}
+
+h1 {
+  color: #333;
+}
+
+.form-container {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.textarea-container {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+textarea {
+  width: 100%;
+  height: 300px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box; /* Garante que o padding seja incluído no tamanho total */
+}
+
+.file-upload-container {
+  width: 100%;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+label {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+input[type="file"] {
+  border: none;
+}
+
+.submit-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px; /* Adicionado para espaçamento entre botões */
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+.support-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #1ebe1e; /* Verde claro */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px; /* Adicionado para espaçamento entre botões */
+}
+
+.support-button:hover {
+  background-color: #1ebe1e; /* Cor de hover para verde claro */
+}
+
+.corrections-container {
+  width: 100%;
+  max-width: 600px;
+  margin-top: 20px;
+}
+
+.correction-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column; /* Muda para coluna para evitar que os itens saiam da linha */
+  justify-content: space-between;
+  align-items: stretch; /* Garante que os itens se estendam completamente */
+  overflow: hidden; /* Adiciona essa linha para evitar transbordamento */
+}
+
+.correction-card p {
+  margin: 0 0 10px 0; /* Adiciona margem inferior para separar o texto do botão */
+  word-wrap: break-word; /* Garante que as palavras sejam quebradas corretamente */
+  white-space: pre-wrap; /* Mantém as quebras de linha e espaços */
+  flex: 1; /* Permite que o parágrafo ocupe todo o espaço disponível */
+}
+
+.correction-card button {
+  padding: 5px 10px;
+  font-size: 14px;
+  color: #fff;
+  background-color: #28a745;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  align-self: flex-end; /* Garante que o botão esteja alinhado à direita */
+}
+
+.correction-card button:hover {
+  background-color: #218838;
+}
+
+.selected-correction-container {
+  width: 100%;
+  max-width: 600px;
+  margin-top: 20px;
+}
+
+.execute-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #28a745;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.execute-button:hover {
+  background-color: #218838;
+}
+
+.output-message {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+}
