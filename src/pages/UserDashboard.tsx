@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import "../styles/userDashboard.css"; // Importa o arquivo CSS
 import { createChatCompletion, submitScript } from "../services/userService";
+import axios from "axios";
 
 interface ApiKey {
   name: string;
@@ -14,7 +15,10 @@ const UserDashboard: React.FC = () => {
   const [selectedCorrection, setSelectedCorrection] = useState(""); // Estado para armazenar a correção selecionada
   const [outputMessage, setOutputMessage] = useState(""); // Estado para armazenar a mensagem de saída
   const [showSupportMessage, setShowSupportMessage] = useState(false); // Estado para controlar a exibição da mensagem de suporte
-  const [apiKeys] = useState<ApiKey[]>([{ name: "GPT-4", key: "gpt3key123" }]);
+  const [apiKeys] = useState<ApiKey[]>([
+    { name: "GPT-4", key: "gpt3key123" },
+    { name: "Modelo Local", key: "localModel" },
+  ]);
   const [selectedApiKey, setSelectedApiKey] = useState(apiKeys[0].key); // Estado para a API de correção selecionada
 
   const [messages, setMessages] = useState<{ role: string; content: string }[]>(
@@ -116,6 +120,40 @@ const UserDashboard: React.FC = () => {
       setSelectedApiKey(selectedKey);
     }
   };
+  useEffect(() => {
+    if (selectedApiKey === "localModel") {
+      // Lógica para o Modelo Local
+      // Exemplo de implementação para chamar a API local
+      const callLocalModel = async () => {
+        try {
+          const response = await axios.post(
+            "http://localhost:11434/api/generate",
+            {
+              model: "codellama",
+              prompt: script, // Usando o script atual como prompt
+              stream: false,
+            }
+          );
+          if (response.data && response.data.message) {
+            // Aqui você pode ajustar conforme necessário para processar a resposta do modelo local
+            const localModelResponse = response.data.message;
+            setMessages([
+              ...messages,
+              {
+                role: "model",
+                content: localModelResponse,
+              },
+            ]);
+            setOutputMessage("Resposta do Modelo Local recebida com sucesso!");
+          }
+        } catch (error) {
+          setOutputMessage("Erro ao chamar o Modelo Local. Tente novamente.");
+        }
+      };
+
+      callLocalModel();
+    }
+  }, [selectedApiKey, script]); // Incluir script como dependência para atualizar com novos prompts
 
   return (
     <div className="dashboard-container">
