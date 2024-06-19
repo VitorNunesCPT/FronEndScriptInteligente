@@ -8,7 +8,7 @@ module.exports = {
   output: {
     filename: "bundle.js",
     path: path.resolve(__dirname, "dist"),
-    publicPath: "/", // Adicione isso para suportar o roteamento do React
+    publicPath: "/",
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js"],
@@ -23,6 +23,10 @@ module.exports = {
       {
         test: /\.css$/,
         use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.(png|jpg|jpeg|gif|ico)$/i,
+        type: "asset/resource",
       },
     ],
   },
@@ -39,6 +43,6 @@ module.exports = {
   devServer: {
     contentBase: "./dist",
     port: 3001,
-    historyApiFallback: true, // Adicione isso para suportar o roteamento do React
+    historyApiFallback: true,
   },
 };

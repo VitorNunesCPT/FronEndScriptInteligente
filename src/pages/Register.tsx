@@ -17,7 +17,7 @@ const Register: React.FC<RegisterProps> = ({ onRegister }) => {
   const navigate = useNavigate();
 
   const validatePassword = (password: string) => {
-    const lengthCheck = password.length >= 1 && password.length <= 40;
+    const lengthCheck = password.length >= 8 && password.length <= 40;
     // const numberCheck = /\d.*\d/.test(password);
     // const specialCharCheck = /[!@#$%^&*(),.?":{}|<>]/.test(password);
     // const upperCaseCheck = /[A-Z]/.test(password);
@@ -29,8 +29,14 @@ const Register: React.FC<RegisterProps> = ({ onRegister }) => {
     //   lowerCaseCheck
   };
 
+  const handleUserTypeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setUserType(e.target.value);
+    setProtocol(""); // Limpar o valor do protocolo quando o tipo de usuário mudar
+  };
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    console.log(userType); // Adicione esta linha para verificar o valor do userType
     if (!validatePassword(password)) {
       setErrorMessage(
         "A senha deve ter entre 8 e 40 caracteres, incluindo pelo menos 2 números, 1 caractere especial, 1 letra maiúscula e 1 letra minúscula."
@@ -102,7 +108,7 @@ const Register: React.FC<RegisterProps> = ({ onRegister }) => {
         <select
           id="userType"
           value={userType}
-          onChange={(e) => setUserType(e.target.value)}
+          onChange={handleUserTypeChange}
           required
         >
           <option value="">Selecione</option>

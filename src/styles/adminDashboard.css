@@ -2,56 +2,45 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  min-height: 80vh;
   padding: 20px;
-  box-sizing: border-box; /* Garante que o padding seja incluído no tamanho total */
-  width: 100%;
-  max-width: 100vw; /* Garante que o container não ultrapasse a largura da viewport */
-  overflow-x: hidden; /* Evita o transbordamento horizontal */
+  margin: auto;
+  border: 1px solid #00e6e6;
+  border-radius: 5px;
+  box-shadow: 0 0 10px #00e6e6;
+  background-color: black;
 }
 
 h1 {
-  color: #333;
+  margin-bottom: 40px; /* Aumenta o espaçamento para mover a mensagem mais para cima */
+  font-size: 24px;
+  color: #00e6e6;
+  text-shadow: 0 0 5px #00e6e6;
 }
 
-.form-container {
-  width: 100%;
-  max-width: 600px;
+.dashboard-options {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-label {
-  margin-bottom: 10px;
-  font-weight: bold;
-}
-
-select {
-  width: 100%;
-  max-width: 300px;
-  padding: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box; /* Garante que o padding seja incluído no tamanho total */
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 button {
-  padding: 10px 20px;
-  font-size: 16px;
-  color: #fff;
-  background-color: #007bff;
-  border: none;
+  width: 200px;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #00e6e6;
   border-radius: 5px;
+  background-color: black;
+  color: #00e6e6;
+  font-size: 16px;
   cursor: pointer;
-  margin-top: 10px;
+  font-weight: bold;
+  text-shadow: 0 0 5px #00e6e6;
 }
 
 button:hover {
-  background-color: #0056b3;
-}
-
-.message {
-  color: green;
-  margin-top: 10px;
+  background-color: #00b3b3;
+  color: black;
 }
