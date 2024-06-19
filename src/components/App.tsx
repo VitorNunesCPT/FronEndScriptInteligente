@@ -15,6 +15,7 @@ import ManageScripts from "../pages/ManageScripts";
 import AuditActivities from "../pages/AuditActivities";
 import SystemMaintenance from "../pages/SystemMaintenance";
 import "../styles/main.css";
+import homeIcon from "../pages/images/homeIcon.jpg";  // Certifique-se de que o caminho está correto
 
 const App: React.FC = () => {
   const [userType, setUserType] = useState<string | null>(null);
@@ -25,7 +26,9 @@ const App: React.FC = () => {
         <nav>
           <ul className="navigation">
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/" className="nav-icon">
+                <img src={homeIcon} alt="Home Icon" className="icon" /> Home
+              </Link>
             </li>
             <li>
               <Link to="/login">Login</Link>
