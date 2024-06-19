@@ -15,7 +15,7 @@ import ManageScripts from "../pages/ManageScripts";
 import AuditActivities from "../pages/AuditActivities";
 import SystemMaintenance from "../pages/SystemMaintenance";
 import "../styles/main.css";
-import homeIcon from "../pages/images/homeIcon.jpg";  // Certifique-se de que o caminho está correto
+import homeIcon from "./images/homeIcon.ico";
 
 const App: React.FC = () => {
   const [userType, setUserType] = useState<string | null>(null);
@@ -27,14 +27,8 @@ const App: React.FC = () => {
           <ul className="navigation">
             <li>
               <Link to="/" className="nav-icon">
-                <img src={homeIcon} alt="Home Icon" className="icon" /> Home
+                <img src={homeIcon} alt="Home Icon" className="nav-icon" />
               </Link>
-            </li>
-            <li>
-              <Link to="/login">Login</Link>
-            </li>
-            <li>
-              <Link to="/register">Register</Link>
             </li>
             {userType === "user" && (
               <>
@@ -62,20 +56,14 @@ const App: React.FC = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login onLogin={setUserType} />} />
-          <Route
-            path="/register"
-            element={<Register onRegister={setUserType} />}
-          />
+          <Route path="/register" element={<Register onRegister={setUserType} />} />
           <Route path="/user-dashboard" element={<UserDashboard />} />
           <Route path="/edit-profile" element={<EditProfile />} />
           <Route path="/user-home" element={<UserHome />} />
           <Route path="/employee-dashboard" element={<EmployeeDashboard />} />
           <Route path="/view-user-scripts" element={<ViewUserScripts />} />
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
-          <Route
-            path="/configure-integrations"
-            element={<ConfigureIntegrations />}
-          />
+          <Route path="/configure-integrations" element={<ConfigureIntegrations />} />
           <Route path="/manage-users" element={<ManageUsers />} />
           <Route path="/manage-scripts" element={<ManageScripts />} />
           <Route path="/audit-activities" element={<AuditActivities />} />

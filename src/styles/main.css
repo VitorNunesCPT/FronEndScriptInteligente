@@ -57,8 +57,6 @@ body::before {
   font-weight: bold;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Efeito 3D */
   transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
 }
 
 .navigation a:hover {
@@ -67,13 +65,13 @@ body::before {
   transform: translateY(-2px); /* Move o link um pouco para cima ao passar o mouse */
 }
 
-.nav-icon::before {
-  content: '';
-  display: inline-block;
-  width: 16px; /* Ajuste conforme necessário */
-  height: 16px; /* Ajuste conforme necessário */
-  margin-right: 8px; /* Espaço entre o ícone e o texto */
-  
+.nav-icon img {
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.nav-icon img:hover {
+  opacity: 1;
 }
 
 .nav-buttons {
